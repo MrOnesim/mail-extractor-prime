@@ -1,0 +1,21 @@
+# dépendances Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# base de leads locale
+*.db
+*.db-wal
+*.db-shm
+
+# déploiement / outils
+.vercel/
+.env
+.env.*
+!.env.example
+node_modules/
+.DS_Store
+Thumbs.db
