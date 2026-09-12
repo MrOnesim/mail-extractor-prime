@@ -676,3 +676,16 @@ textarea::placeholder { color: var(--text-muted); }
     .dash-cards { grid-template-columns: repeat(2, 1fr); }
     .dash-grid { grid-template-columns: 1fr; }
 }
+
+/* Hero (landing) */
+.hero { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; padding: 22px 24px; margin-bottom: 18px; }
+.hero-inner { flex: 1; min-width: 260px; }
+.hero-title { margin: 0 0 6px; font-size: 22px; font-weight: 800; line-height: 1.25; }
+.hero-sub { margin: 0; font-size: 14px; color: var(--text-muted); max-width: 560px; line-height: 1.5; }
+.hero-features { display: grid; grid-template-columns: repeat(3, minmax(150px, 1fr)); gap: 10px; flex: 1; min-width: 460px; }
+.hero-feature { display: flex; align-items: center; gap: 10px; border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; background: var(--bg); font-size: 12.5px; color: var(--text-muted); line-height: 1.35; }
+.hero-feature svg { flex: none; color: var(--accent); }
+.hero-feature strong { display: block; color: var(--text); font-weight: 600; }
+@media (max-width: 700px) {
+    .hero-features { grid-template-columns: 1fr; min-width: 0; }
+}

@@ -47,6 +47,8 @@ Test du backend :
 python -m unittest test_app
 ```
 
+CI : `.github/workflows/ci.yml` (tests Python 3.11/3.12 + `node --check` sur chaque push/PR).
+
 ## Déploiement sur Vercel
 
 `vercel.json` est déjà configuré (`@vercel/python`, toutes les routes dirigées
