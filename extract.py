@@ -165,6 +165,14 @@ def _raw_dns_check(domain: str, rtype: str) -> bool:
     resolver = dns.resolver.Resolver()
     resolver.timeout = DNS_TIMEOUT
     resolver.lifetime = DNS_TIMEOUT
+    try:
+        resolver.resolve(domain, rtype)
+        return True
+    except Exception:
+        pass
+    # Certains runtimes (Vercel/Lambda) n'exposent pas de résolveur système
+    # joignable : repli sur des résolveurs publics.
+    resolver.nameservers = ["8.8.8.8", "1.1.1.1"]
     resolver.resolve(domain, rtype)
     return True
 
