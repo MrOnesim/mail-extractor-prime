@@ -1,5 +1,7 @@
 # MailLens
 
+[![CI](https://github.com/MrOnesim/mail-extractor-prime/actions/workflows/ci.yml/badge.svg)](https://github.com/MrOnesim/mail-extractor-prime/actions/workflows/ci.yml)
+
 Extracteur et analyseur intelligent d'emails : collez un texte, l'outil extrait,
 nettoie, valide et qualifie chaque adresse, puis alimente une base de leads avec
 dédoublonnage automatique par identité.
