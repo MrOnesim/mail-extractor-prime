@@ -5,6 +5,8 @@
     --bg: #f0f2f5;
     --surface: #ffffff;
     --surface-hover: #f8f9fb;
+    --card: var(--surface);
+    --muted: var(--gray-light);
     --text: #111827;
     --text-secondary: #6b7280;
     --text-muted: #9ca3af;
@@ -45,15 +47,21 @@
     --green-light: #064e3b;
     --amber: #fbbf24;
     --amber-light: #78350f;
-    --red: #f87171;
+--red: #f87171;
     --red-light: #7f1d1d;
     --gray-light: #1e293b;
+    --card: var(--surface);
+    --muted: var(--gray-light);
     --glass-bg: rgba(30,41,59,0.72);
     --glass-border: rgba(51,65,85,0.45);
     --glass-shadow: 0 8px 32px rgba(0,0,0,0.3);
 }
 
-html { scroll-behavior: smooth; }
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
 
 body {
     font-family: var(--font);
@@ -614,17 +622,32 @@ textarea::placeholder { color: var(--text-muted); }
 ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
 
 /* ── Responsive ──────────────────────────────────────────── */
-@media (max-width: 600px) {
-    .container { padding: 16px 12px; }
-    .header { flex-direction: column; gap: 12px; }
-    .logo h1 { font-size: 22px; }
-    .copy-bar { flex-direction: column; gap: 10px; align-items: stretch; }
-    .copy-right { justify-content: flex-end; }
-    .email-card { flex-direction: column; align-items: flex-start; gap: 10px; }
-    .email-right { align-self: flex-end; }
-    .stats { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 700px) {
     .est-grid { grid-template-columns: 1fr 1fr; }
     .est-grid .btn-primary { grid-column: 1 / -1; }
+}
+
+@media (max-width: 600px) {
+    .container { padding: 16px 12px; }
+    .header { position: relative; flex-direction: column; gap: 12px; }
+    .theme-toggle { position: absolute; top: 0; right: 0; }
+    .logo { width: 100%; padding-right: 52px; }
+    .logo h1 { font-size: 22px; }
+    .tagline { font-size: 12px; }
+    input, select, textarea, button { font-size: 16px; }
+    .copy-bar { flex-direction: column; gap: 10px; align-items: stretch; padding: 14px 16px; }
+    .copy-left select { width: 100%; }
+    .copy-right { flex-wrap: wrap; justify-content: flex-start; }
+    .copy-right .btn-copy, .copy-right .btn-csv { flex: 1 1 auto; justify-content: center; }
+    .copy-msg { min-width: 0; text-align: left; }
+    .email-card { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .email-right { width: 100%; align-self: auto; flex-wrap: wrap; justify-content: flex-end; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .hero-inner { min-width: 0; }
+    .actions { flex-wrap: wrap; }
+    .actions .btn-primary, .actions .btn-ghost { flex: 1 1 100%; justify-content: center; }
+    .leads-toolbar { order: 2; width: 100%; }
+    .modal { max-height: 88vh; }
 }
 
 /* Lead section */
@@ -691,6 +714,6 @@ textarea::placeholder { color: var(--text-muted); }
     .hero-features { grid-template-columns: 1fr; min-width: 0; }
 }
 
-/* S�curit� : un �l�ment marqu� hidden doit toujours �tre masqu�,
-   m�me si sa classe pose un display (flex/grid/...). */
+/* S�curit� : un �l�ment marqu� hidden doit toujours �tre masqu�,
+   m�me si sa classe pose un display (flex/grid/...). */
 [hidden] { display: none !important; }
